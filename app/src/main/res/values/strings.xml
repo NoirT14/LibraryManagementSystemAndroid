@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Library Management</string>
+
+    <!-- Auth Titles -->
+    <string name="login_title">Sign In</string>
+    <string name="register_title">Create Account</string>
+    <string name="forgot_password_title">Reset Password</string>
+
+    <!-- Form Fields -->
+    <string name="username_hint">Username</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="phone_hint">Phone (Optional)</string>
+    <string name="address_hint">Address (Optional)</string>
+    <string name="username_or_email_hint">Username or Email</string>
+
+    <!-- Buttons -->
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="send_reset_button">Send Reset Link</string>
+    <string name="logout_button">Logout</string>
+    <string name="remember_me">Remember me</string>
+
+    <!-- Messages -->
+    <string name="login_success">Login successful!</string>
+    <string name="login_failed">Login failed. Please try again.</string>
+    <string name="register_success">Registration successful!</string>
+    <string name="network_error">Network error. Please check your connection.</string>
+    <string name="invalid_email">Please enter a valid email address</string>
+    <string name="password_too_short">Password must be at least 6 characters</string>
+    <string name="passwords_dont_match">Passwords do not match</string>
+    <string name="field_required">This field is required</string>
+
+    <!-- Navigation -->
+    <string name="back_to_login">Back to Login</string>
+    <string name="go_to_register">Don\'t have an account? Register</string>
+    <string name="go_to_login">Already have an account? Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+
+    <!-- Main App -->
+    <string name="welcome">Welcome</string>
+    <string name="books">Books</string>
+    <string name="profile">Profile</string>
+    <string name="admin_panel">Admin Panel</string>
+    <string name="logout_confirm">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+
+    <!-- Loading -->
+    <string name="logging_in">Logging in...</string>
+    <string name="creating_account">Creating Account...</string>
+    <string name="sending">Sending...</string>
+
+    <!-- Descriptions -->
+    <string name="library_logo">Library Logo</string>
+    <string name="lock_icon">Lock Icon</string>
+</resources>
