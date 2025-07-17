@@ -136,23 +136,37 @@ public class LoginActivity extends AppCompatActivity {
 
     private void handleLoginSuccess(LoginResponse response, boolean rememberMe) {
         try {
-            // Parse JWT token to get user info (simplified - you might want to use a JWT library)
             String token = response.getToken();
             SessionInfo sessionInfo = response.getSessionInfo();
 
-            // Save to SharedPreferences
+            Log.d(TAG, "=== Login Success ===");
+            Log.d(TAG, "Token received: " + (token != null ? "YES" : "NO"));
+            if (token != null) {
+                Log.d(TAG, "Token length: " + token.length());
+                Log.d(TAG, "Token preview: " + token.substring(0, Math.min(20, token.length())) + "...");
+            }
+
+            // Save only essential login data - user details will be loaded from profile API
             sharedPrefsHelper.saveLoginData(
                     token,
-                    0, // You'll need to parse this from JWT or get from API
-                    "", // Parse from JWT
-                    "", // Parse from JWT
-                    "", // Parse from JWT
+                    0, // Will be updated when profile is loaded
+                    "", // Will be updated when profile is loaded
+                    "", // Will be updated when profile is loaded
+                    "", // Will be updated when profile is loaded
                     response.getRole(),
-                    "", // Parse from JWT
-                    "", // Parse from JWT
+                    "", // Will be updated when profile is loaded
+                    "", // Will be updated when profile is loaded
                     sessionInfo != null ? sessionInfo.getSessionId() : "",
                     rememberMe
             );
+
+            // Verify token was saved
+            String savedToken = sharedPrefsHelper.getToken();
+            Log.d(TAG, "Token saved successfully: " + (savedToken != null && !savedToken.isEmpty()));
+
+            if (savedToken != null) {
+                Log.d(TAG, "Saved token preview: " + savedToken.substring(0, Math.min(20, savedToken.length())) + "...");
+            }
 
             showToast("Login successful!");
             navigateToMain();

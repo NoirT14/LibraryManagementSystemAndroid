@@ -15,6 +15,9 @@
     <string name="phone_hint">Phone (Optional)</string>
     <string name="address_hint">Address (Optional)</string>
     <string name="username_or_email_hint">Username or Email</string>
+    <string name="current_password_hint">Current Password</string>
+    <string name="new_password_hint">New Password</string>
+    <string name="confirm_new_password_hint">Confirm New Password</string>
 
     <!-- Buttons -->
     <string name="login_button">Login</string>
@@ -22,16 +25,22 @@
     <string name="send_reset_button">Send Reset Link</string>
     <string name="logout_button">Logout</string>
     <string name="remember_me">Remember me</string>
+    <string name="update_profile_button">Update Profile</string>
+    <string name="change_password_button">Change Password</string>
 
     <!-- Messages -->
     <string name="login_success">Login successful!</string>
     <string name="login_failed">Login failed. Please try again.</string>
     <string name="register_success">Registration successful!</string>
+    <string name="profile_update_success">Profile updated successfully!</string>
+    <string name="password_change_success">Password changed successfully!</string>
     <string name="network_error">Network error. Please check your connection.</string>
     <string name="invalid_email">Please enter a valid email address</string>
     <string name="password_too_short">Password must be at least 6 characters</string>
     <string name="passwords_dont_match">Passwords do not match</string>
     <string name="field_required">This field is required</string>
+    <string name="current_password_incorrect">Current password is incorrect</string>
+    <string name="new_password_same_as_current">New password must be different from current password</string>
 
     <!-- Navigation -->
     <string name="back_to_login">Back to Login</string>
@@ -39,11 +48,16 @@
     <string name="go_to_login">Already have an account? Login</string>
     <string name="forgot_password">Forgot Password?</string>
 
+    <!-- Profile -->
+    <string name="my_profile">My Profile</string>
+    <string name="account_information">Account Information</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="security">Security</string>
+    <string name="member_since">Member since: %s</string>
+
     <!-- Main App -->
     <string name="welcome">Welcome</string>
     <string name="books">Books</string>
-    <string name="profile">Profile</string>
-    <string name="admin_panel">Admin Panel</string>
     <string name="logout_confirm">Are you sure you want to logout?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -53,6 +67,8 @@
     <string name="logging_in">Logging in...</string>
     <string name="creating_account">Creating Account...</string>
     <string name="sending">Sending...</string>
+    <string name="updating">Updating...</string>
+    <string name="changing">Changing...</string>
 
     <!-- Descriptions -->
     <string name="library_logo">Library Logo</string>

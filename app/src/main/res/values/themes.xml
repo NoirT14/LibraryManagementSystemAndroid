@@ -24,7 +24,7 @@
     </style>
 
     <!-- NoActionBar theme for auth activities -->
-    <style name="Theme.Project_PRM392.NoActionBar">
+    <style name="Theme.Project_PRM392.NoActionBar" parent="Theme.Project_PRM392">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
