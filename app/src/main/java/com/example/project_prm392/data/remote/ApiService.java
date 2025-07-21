@@ -9,6 +9,9 @@ import com.example.project_prm392.data.model.auth.LogoutResponse;
 import com.example.project_prm392.data.model.auth.MessageResponse;
 import com.example.project_prm392.data.model.auth.RegisterRequest;
 import com.example.project_prm392.data.model.auth.ResetPasswordRequest;
+import com.example.project_prm392.data.model.auth.ResetPasswordWithOtpRequest;
+import com.example.project_prm392.data.model.auth.VerifyOtpRequest;
+import com.example.project_prm392.data.model.auth.VerifyOtpResponse;
 import com.example.project_prm392.data.model.user.*;
 
 import java.util.List;
@@ -34,9 +37,19 @@ public interface ApiService {
     @POST("api/auth/logout")
     Call<LogoutResponse> logout();
 
+    // ✅ UPDATED: Now sends OTP instead of reset link
     @POST("api/auth/forgot-password")
     Call<MessageResponse> forgotPassword(@Body ForgotPasswordRequest request);
 
+    // ✅ NEW: OTP verification endpoint
+    @POST("api/auth/verify-otp")
+    Call<VerifyOtpResponse> verifyOtp(@Body VerifyOtpRequest request);
+
+    // ✅ NEW: Reset password with OTP endpoint
+    @POST("api/auth/reset-password-with-otp")
+    Call<MessageResponse> resetPasswordWithOtp(@Body ResetPasswordWithOtpRequest request);
+
+    // ✅ DEPRECATED: Keep for backward compatibility
     @POST("api/auth/reset-password")
     Call<MessageResponse> resetPassword(@Body ResetPasswordRequest request);
 
@@ -50,7 +63,7 @@ public interface ApiService {
     @PUT("api/user/change-password")
     Call<Void> changePassword(@Body ChangePasswordRequest request);
 
-
+    // ============= BOOK ENDPOINTS =============
     // Lấy danh sách sách (homepage)
     @GET("odata/Books")
     Call<List<Book>> getBooks();
