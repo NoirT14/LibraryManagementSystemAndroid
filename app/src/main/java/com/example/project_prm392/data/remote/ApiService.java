@@ -1,6 +1,8 @@
 package com.example.project_prm392.data.remote;
 
-import com.example.project_prm392.data.model.Book;
+import com.example.project_prm392.data.model.BookBasicInfoRespone;
+import com.example.project_prm392.data.model.BookDetailInfoResponse;
+import com.example.project_prm392.data.model.ODataResponse;
 import com.example.project_prm392.data.model.auth.AuthResult;
 import com.example.project_prm392.data.model.auth.ForgotPasswordRequest;
 import com.example.project_prm392.data.model.auth.LoginRequest;
@@ -87,12 +89,17 @@ public interface ApiService {
     @GET("api/BookVariants/{variantId}")
     Call<BookVariantDto> getBookVariantById(@Path("variantId") int variantId);
 
-    // ============= BOOK ENDPOINTS =============
+    // ============= Book ENDPOINTS =============
+
     // Lấy danh sách sách (homepage)
-    @GET("odata/Books")
-    Call<List<Book>> getBooks();
+    @GET("api/manage/Book")
+    Call<ODataResponse<BookBasicInfoRespone>> getBooks(
+            @Query("$skip") int skip,
+            @Query("$top") int top,
+            @Query("$filter") String filter
+    );
 
     // Lấy chi tiết sách theo ID
-    @GET("odata/Books/{id}")
-    Call<Book> getBookById(@Path("id") int id);
+    @GET("api/manage/Book/{id}")
+    Call<BookDetailInfoResponse> getBookById(@Path("id") int id);
 }

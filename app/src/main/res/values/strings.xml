@@ -57,7 +57,7 @@
 
     <!-- Main App -->
     <string name="welcome">Welcome</string>
-    <string name="books">Books</string>
+    <string name="bookBasicInfoRespones">Books</string>
     <string name="logout_confirm">Are you sure you want to logout?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -73,9 +73,22 @@
     <!-- Descriptions -->
     <string name="library_logo">Library Logo</string>
     <string name="lock_icon">Lock Icon</string>
-
+    <string name="book_cover">Book cover</string>
+    <string name="description">Description</string>
+    <string name="availability">Availability</string>
+    <string name="m_n_s_ch">Mượn sách</string>
+    <string name="t_tr_c">Đặt trước</string>
+    <string name="v_tr">Vị trí</string>
+    <string name="tr_ng_th_i">Trạng thái</string>
+    <string name="t_nh_tr_ng">Tình trạng</string>
+    <string name="m_t_s_ch">Mô tả sách</string>
+    <string name="m_t">Mô tả</string>
+    <string name="th_lo_i">Thể loại</string>
+    <string name="isbn">ISBN</string>
+    <string name="n_m">Năm</string>
+    <string name="nxb">NXB</string>
+    <string name="t_m_ki_m_s_ch">Tìm kiếm sách...</string>
     <string name="notification_title">Notification Title</string>
     <string name="notification_message_placeholder">Message preview or body text goes here...</string>
     <string name="notification_icon">Notification icon</string>
-
 </resources>
