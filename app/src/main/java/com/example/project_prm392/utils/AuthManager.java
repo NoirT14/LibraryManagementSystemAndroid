@@ -93,4 +93,9 @@ public class AuthManager {
     public boolean isUser() {
         return sharedPrefsHelper.getRole() == Constants.ROLE_USER;
     }
+
+    public int getUserId() {
+        return sharedPrefsHelper.getUserId(); // đảm bảo hàm này có trong SharedPrefsHelper
+    }
+
 }

@@ -73,4 +73,9 @@
     <!-- Descriptions -->
     <string name="library_logo">Library Logo</string>
     <string name="lock_icon">Lock Icon</string>
+
+    <string name="notification_title">Notification Title</string>
+    <string name="notification_message_placeholder">Message preview or body text goes here...</string>
+    <string name="notification_icon">Notification icon</string>
+
 </resources>

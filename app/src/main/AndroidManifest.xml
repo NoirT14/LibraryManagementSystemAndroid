@@ -61,6 +61,16 @@
             android:theme="@style/Theme.Project_PRM392.NoActionBar"
             android:parentActivityName=".ui.user.UserProfileActivity" />
 
+        <activity android:name=".ui.notification.NotificationsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project_PRM392.NoActionBar"
+            android:parentActivityName=".ui.notification.NotificationsActivity" />
+
+        <activity android:name=".ui.notification.NotificationDetailActivity" />
+
+        <activity android:name=".ui.loan.LoanListActivity" />
+
+        <activity android:name=".ui.reservation.ReservationDetailActivity" />
         <!-- Books Activity -->
         <activity
             android:name=".ui.books.BooksActivity"

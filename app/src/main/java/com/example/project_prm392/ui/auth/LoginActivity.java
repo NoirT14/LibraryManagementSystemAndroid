@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.project_prm392.data.model.user.UserProfileResponse;
 import com.example.project_prm392.ui.main.MainActivity;
 import com.example.project_prm392.R;
 import com.example.project_prm392.data.local.SharedPrefsHelper;
@@ -135,48 +136,48 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleLoginSuccess(LoginResponse response, boolean rememberMe) {
-        try {
-            String token = response.getToken();
-            SessionInfo sessionInfo = response.getSessionInfo();
+        String token = response.getToken();
+        int role = response.getRole();
+        SessionInfo sessionInfo = response.getSessionInfo();
 
-            Log.d(TAG, "=== Login Success ===");
-            Log.d(TAG, "Token received: " + (token != null ? "YES" : "NO"));
-            if (token != null) {
-                Log.d(TAG, "Token length: " + token.length());
-                Log.d(TAG, "Token preview: " + token.substring(0, Math.min(20, token.length())) + "...");
+        sharedPrefsHelper.updateToken(token); // lưu token tạm thời
+
+        // GỌI PROFILE NGAY SAU LOGIN
+        apiService.getUserProfile().enqueue(new Callback<UserProfileResponse>() {
+            @Override
+            public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> res) {
+                if (res.isSuccessful() && res.body() != null) {
+                    UserProfileResponse profile = res.body();
+
+                    // LƯU FULL THÔNG TIN + TOKEN + USER_ID
+                    sharedPrefsHelper.saveLoginData(
+                            token,
+                            profile.getUserId(),          // ✅ Lưu đúng userId = 4
+                            profile.getUsername(),
+                            profile.getFullName(),
+                            profile.getEmail(),
+                            role,
+                            profile.getPhone(),
+                            profile.getAddress(),
+                            sessionInfo != null ? sessionInfo.getSessionId() : "",
+                            rememberMe
+                    );
+
+                    Log.d(TAG, "✅ Profile & Login saved. userId = " + profile.getUserId());
+                    navigateToMain();
+                    finish();
+                } else {
+                    showToast("Không thể tải thông tin người dùng.");
+                }
             }
 
-            // Save only essential login data - user details will be loaded from profile API
-            sharedPrefsHelper.saveLoginData(
-                    token,
-                    0, // Will be updated when profile is loaded
-                    "", // Will be updated when profile is loaded
-                    "", // Will be updated when profile is loaded
-                    "", // Will be updated when profile is loaded
-                    response.getRole(),
-                    "", // Will be updated when profile is loaded
-                    "", // Will be updated when profile is loaded
-                    sessionInfo != null ? sessionInfo.getSessionId() : "",
-                    rememberMe
-            );
-
-            // Verify token was saved
-            String savedToken = sharedPrefsHelper.getToken();
-            Log.d(TAG, "Token saved successfully: " + (savedToken != null && !savedToken.isEmpty()));
-
-            if (savedToken != null) {
-                Log.d(TAG, "Saved token preview: " + savedToken.substring(0, Math.min(20, savedToken.length())) + "...");
+            @Override
+            public void onFailure(Call<UserProfileResponse> call, Throwable t) {
+                showToast("Lỗi kết nối khi lấy profile.");
             }
-
-            showToast("Login successful!");
-            navigateToMain();
-            finish();
-
-        } catch (Exception e) {
-            Log.e(TAG, "Error processing login response", e);
-            showToast("Login failed. Please try again.");
-        }
+        });
     }
+
 
     private void handleLoginError(int code, String message) {
         String errorMessage;

@@ -9,14 +9,18 @@ import com.example.project_prm392.data.model.auth.LogoutResponse;
 import com.example.project_prm392.data.model.auth.MessageResponse;
 import com.example.project_prm392.data.model.auth.RegisterRequest;
 import com.example.project_prm392.data.model.auth.ResetPasswordRequest;
+import com.example.project_prm392.data.model.book.BookVariantDto;
+import com.example.project_prm392.data.model.loan.Loan;
+import com.example.project_prm392.data.model.notification.Notification;
 import com.example.project_prm392.data.model.user.*;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -50,6 +54,25 @@ public interface ApiService {
     @PUT("api/user/change-password")
     Call<Void> changePassword(@Body ChangePasswordRequest request);
 
+    // ============= NOTIFICATIONS =============
+    @GET("api/notifications/receiver/{receiverId}")
+    Call<List<Notification>> getNotificationsByReceiver(@Path("receiverId") int receiverId);
+
+    @PATCH("api/notifications/{id}/mark-read")
+    Call<Void> markNotificationAsRead(@Path("id") int id);
+
+    @GET("api/notifications/unread-count/{receiverId}")
+    Call<Integer> getUnreadNotificationCount(@Path("receiverId") int receiverId);
+
+
+    @GET("api/Loan/user/{userId}")
+    Call<List<Loan>> getLoansByUserId(@Path("userId") int userId);
+
+    @POST("api/Reservation/create")
+    Call<ResponseBody> createReservation(@Query("userId") int userId, @Query("variantId") int variantId);
+
+    @GET("api/BookVariants/{variantId}")
+    Call<BookVariantDto> getBookVariantById(@Path("variantId") int variantId);
 
     // Lấy danh sách sách (homepage)
     @GET("odata/Books")
@@ -58,4 +81,5 @@ public interface ApiService {
     // Lấy chi tiết sách theo ID
     @GET("odata/Books/{id}")
     Call<Book> getBookById(@Path("id") int id);
+
 }
