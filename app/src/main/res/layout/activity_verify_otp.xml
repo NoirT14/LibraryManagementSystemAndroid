@@ -9,23 +9,22 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/ic_lock"
+        android:src="@drawable/ic_mail"
         android:layout_marginBottom="24dp"
-        android:contentDescription="Lock Icon" />
+        android:contentDescription="Mail Icon" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
+        android:text="Verify OTP"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="8dp" />
 
-    <!-- ✅ UPDATED: Changed description for OTP -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter your username or email to receive an OTP code for password reset"
+        android:text="Enter the 6-digit OTP code sent to your email"
         android:textSize="16sp"
         android:textColor="@android:color/darker_gray"
         android:textAlignment="center"
@@ -34,26 +33,64 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp">
+        android:layout_marginBottom="16dp">
 
         <EditText
-            android:id="@+id/etUsernameOrEmail"
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username or Email"
+            android:hint="Email Address"
             android:inputType="textEmailAddress"
             android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- ✅ UPDATED: Changed button ID and text -->
-    <Button
-        android:id="@+id/btnSendOtp"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send OTP"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/etOtpCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter 6-digit OTP"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:letterSpacing="0.2"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Countdown Timer -->
+    <TextView
+        android:id="@+id/tvCountdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP in 10:00"
+        android:textSize="14sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnVerifyOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verify OTP"
         android:textSize="16sp"
         android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnResendOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:enabled="false" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -63,10 +100,10 @@
         android:layout_marginBottom="16dp" />
 
     <TextView
-        android:id="@+id/tvBackToLogin"
+        android:id="@+id/tvBackToForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back to Login"
+        android:text="Back to Forgot Password"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:clickable="true"

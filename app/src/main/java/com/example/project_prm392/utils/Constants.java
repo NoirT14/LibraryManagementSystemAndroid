@@ -10,7 +10,14 @@ public class Constants {
     public static final String REGISTER_ENDPOINT = "api/auth/register";
     public static final String LOGOUT_ENDPOINT = "api/auth/logout";
     public static final String FORGOT_PASSWORD_ENDPOINT = "api/auth/forgot-password";
+
+    // ✅ NEW: OTP endpoints
+    public static final String VERIFY_OTP_ENDPOINT = "api/auth/verify-otp";
+    public static final String RESET_PASSWORD_WITH_OTP_ENDPOINT = "api/auth/reset-password-with-otp";
+
+    // ✅ DEPRECATED: Keep for backward compatibility
     public static final String RESET_PASSWORD_ENDPOINT = "api/auth/reset-password";
+
     public static final String USER_PROFILE_ENDPOINT = "api/user/profile";
     public static final String CHANGE_PASSWORD_ENDPOINT = "api/user/change-password";
 
@@ -41,6 +48,10 @@ public class Constants {
     public static final int MAX_PHONE_LENGTH = 15;
     public static final int MAX_ADDRESS_LENGTH = 255;
 
+    // ✅ NEW: OTP validation
+    public static final int OTP_LENGTH = 6;
+    public static final int OTP_EXPIRY_MINUTES = 10;
+
     // Network Timeouts (seconds)
     public static final int CONNECT_TIMEOUT = 30;
     public static final int READ_TIMEOUT = 30;
@@ -60,17 +71,29 @@ public class Constants {
     public static final String KEY_IS_LOGGED_IN = "is_logged_in";
     public static final String KEY_REMEMBER_ME = "remember_me";
 
+    // ✅ NEW: OTP SharedPreferences Keys
+    public static final String KEY_RESET_EMAIL = "reset_email";
+    public static final String KEY_OTP_VERIFIED = "otp_verified";
+
     // Intent Extra Keys
     public static final String EXTRA_USER_ID = "user_id";
     public static final String EXTRA_USER_DATA = "user_data";
     public static final String EXTRA_BOOK_ID = "book_id";
     public static final String EXTRA_BOOK_DATA = "book_data";
 
+    // ✅ NEW: OTP Intent Extra Keys
+    public static final String EXTRA_EMAIL = "email";
+    public static final String EXTRA_FROM_OTP = "from_otp";
+
     // Request Codes
     public static final int REQUEST_CREATE_USER = 100;
     public static final int REQUEST_EDIT_USER = 101;
     public static final int REQUEST_EDIT_PROFILE = 102;
     public static final int REQUEST_CHANGE_PASSWORD = 103;
+
+    // ✅ NEW: OTP Request Codes
+    public static final int REQUEST_VERIFY_OTP = 104;
+    public static final int REQUEST_RESET_PASSWORD_OTP = 105;
 
     // Date Formats
     public static final String DATE_FORMAT_DISPLAY = "dd/MM/yyyy";
@@ -100,20 +123,33 @@ public class Constants {
     public static final String ERROR_VALIDATION = "Please check your input.";
     public static final String ERROR_UNKNOWN = "An unexpected error occurred.";
 
+    // ✅ NEW: OTP Error Messages
+    public static final String ERROR_OTP_INVALID = "Invalid OTP code. Please try again.";
+    public static final String ERROR_OTP_EXPIRED = "OTP has expired. Please request a new one.";
+    public static final String ERROR_OTP_TOO_MANY_ATTEMPTS = "Too many failed attempts. Please request a new OTP.";
+
     // Success Messages
     public static final String SUCCESS_LOGIN = "Login successful!";
     public static final String SUCCESS_REGISTER = "Registration successful!";
     public static final String SUCCESS_LOGOUT = "Logged out successfully";
     public static final String SUCCESS_PROFILE_UPDATE = "Profile updated successfully!";
     public static final String SUCCESS_PASSWORD_CHANGE = "Password changed successfully!";
-    public static final String SUCCESS_PASSWORD_RESET = "Password reset link sent!";
+    public static final String SUCCESS_PASSWORD_RESET = "Password reset successfully!";
+
+    // ✅ NEW: OTP Success Messages
+    public static final String SUCCESS_OTP_SENT = "OTP has been sent to your email!";
+    public static final String SUCCESS_OTP_VERIFIED = "OTP verified successfully!";
 
     // Loading Messages
     public static final String LOADING_LOGIN = "Logging in...";
     public static final String LOADING_REGISTER = "Creating account...";
     public static final String LOADING_UPDATE = "Updating...";
     public static final String LOADING_CHANGE_PASSWORD = "Changing password...";
-    public static final String LOADING_SEND_RESET = "Sending...";
+    public static final String LOADING_SEND_RESET = "Sending OTP...";
+
+    // ✅ NEW: OTP Loading Messages
+    public static final String LOADING_VERIFY_OTP = "Verifying OTP...";
+    public static final String LOADING_RESET_PASSWORD = "Resetting password...";
 
     // Validation Messages
     public static final String VALIDATION_REQUIRED = "This field is required";
@@ -123,6 +159,10 @@ public class Constants {
     public static final String VALIDATION_PASSWORDS_MATCH = "Passwords do not match";
     public static final String VALIDATION_PHONE = "Please enter a valid phone number";
     public static final String VALIDATION_FULL_NAME = "Full name must be at least " + MIN_FULL_NAME_LENGTH + " characters";
+
+    // ✅ NEW: OTP Validation Messages
+    public static final String VALIDATION_OTP_LENGTH = "OTP must be " + OTP_LENGTH + " digits";
+    public static final String VALIDATION_OTP_DIGITS = "OTP must contain only digits";
 
     // Allowed Email Domains (if needed)
     public static final String[] ALLOWED_EMAIL_DOMAINS = {
