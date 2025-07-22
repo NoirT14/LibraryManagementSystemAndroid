@@ -5,6 +5,8 @@ public class LoginResponse {
     private int role;
     private SessionInfo sessionInfo;
 
+
+
     // Getters and Setters
     public String getToken() { return token; }
     public void setToken(String token) { this.token = token; }

@@ -88,4 +88,7 @@
     <string name="n_m">Năm</string>
     <string name="nxb">NXB</string>
     <string name="t_m_ki_m_s_ch">Tìm kiếm sách...</string>
+    <string name="notification_title">Notification Title</string>
+    <string name="notification_message_placeholder">Message preview or body text goes here...</string>
+    <string name="notification_icon">Notification icon</string>
 </resources>

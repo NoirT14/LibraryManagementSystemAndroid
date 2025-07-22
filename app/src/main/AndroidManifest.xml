@@ -48,6 +48,19 @@
             android:exported="false"
             android:theme="@style/Theme.Project_PRM392.NoActionBar" />
 
+        <!-- ✅ THÊM MỚI: OTP Activities -->
+        <activity
+            android:name=".ui.auth.VerifyOtpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project_PRM392.NoActionBar"
+            android:parentActivityName=".ui.auth.ForgotPasswordActivity" />
+
+        <activity
+            android:name=".ui.auth.ResetPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project_PRM392.NoActionBar"
+            android:parentActivityName=".ui.auth.VerifyOtpActivity" />
+
         <!-- User Profile Activities -->
         <activity
             android:name=".ui.user.UserProfileActivity"
@@ -61,12 +74,17 @@
             android:theme="@style/Theme.Project_PRM392.NoActionBar"
             android:parentActivityName=".ui.user.UserProfileActivity" />
 
-        <activity
-            android:name=".ui.books.BookDetailActivity"
+        <activity android:name=".ui.notification.NotificationsActivity"
             android:exported="false"
             android:theme="@style/Theme.Project_PRM392.NoActionBar"
-            android:parentActivityName=".ui.books.BooksActivity" />
+            android:parentActivityName=".ui.notification.NotificationsActivity" />
 
+        <activity android:name=".ui.notification.NotificationDetailActivity" />
+
+        <activity android:name=".ui.loan.LoanListActivity" />
+
+        <activity android:name=".ui.reservation.ReservationDetailActivity" />
+      
         <!-- Books Activity -->
         <activity
             android:name=".ui.books.BooksActivity"
@@ -75,6 +93,11 @@
             android:parentActivityName=".ui.main.MainActivity">
         </activity>
 
+        <activity
+            android:name=".ui.books.BookDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project_PRM392.NoActionBar"
+            android:parentActivityName=".ui.books.BooksActivity" />
 
     </application>
 

@@ -1,5 +1,6 @@
 package com.example.project_prm392.data.model.user;
 
+
 public class UserProfileUpdateRequest {
     private String fullName;
     private String phone;
