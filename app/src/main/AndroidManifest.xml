@@ -61,12 +61,20 @@
             android:theme="@style/Theme.Project_PRM392.NoActionBar"
             android:parentActivityName=".ui.user.UserProfileActivity" />
 
+        <activity
+            android:name=".ui.books.BookDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project_PRM392.NoActionBar"
+            android:parentActivityName=".ui.books.BooksActivity" />
+
         <!-- Books Activity -->
         <activity
             android:name=".ui.books.BooksActivity"
             android:exported="false"
             android:theme="@style/Theme.Project_PRM392.NoActionBar"
-            android:parentActivityName=".ui.main.MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity">
+        </activity>
+
 
     </application>
 
