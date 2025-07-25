@@ -83,8 +83,14 @@
 
         <activity android:name=".ui.loan.LoanListActivity" />
 
-        <activity android:name=".ui.reservation.ReservationDetailActivity" />
-      
+        <activity android:name=".ui.reservation.ReservationDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project_PRM392.NoActionBar"/>
+        <activity android:name=".ui.reservation.ReservationListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project_PRM392.NoActionBar"
+            android:parentActivityName=".ui.main.MainActivity"/>
+
         <!-- Books Activity -->
         <activity
             android:name=".ui.books.BooksActivity"

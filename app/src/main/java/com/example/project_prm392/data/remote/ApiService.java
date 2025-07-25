@@ -1,5 +1,6 @@
 package com.example.project_prm392.data.remote;
 
+import com.example.project_prm392.data.WrappedList;
 import com.example.project_prm392.data.model.BookBasicInfoRespone;
 import com.example.project_prm392.data.model.BookDetailInfoResponse;
 import com.example.project_prm392.data.model.ODataResponse;
@@ -17,6 +18,8 @@ import com.example.project_prm392.data.model.notification.Notification;
 import com.example.project_prm392.data.model.auth.ResetPasswordWithOtpRequest;
 import com.example.project_prm392.data.model.auth.VerifyOtpRequest;
 import com.example.project_prm392.data.model.auth.VerifyOtpResponse;
+import com.example.project_prm392.data.model.reservation.ReservationDto;
+import com.example.project_prm392.data.model.reservation.ReserveBookDto;
 import com.example.project_prm392.data.model.user.*;
 
 import java.util.List;
@@ -84,7 +87,7 @@ public interface ApiService {
     Call<List<Loan>> getLoansByUserId(@Path("userId") int userId);
 
     @POST("api/Reservation/create")
-    Call<ResponseBody> createReservation(@Query("userId") int userId, @Query("variantId") int variantId);
+    Call<ResponseBody> createReservation(@Query("userId") int userId, @Query("volumeId") int volumnId);
 
     @GET("api/BookVariants/{variantId}")
     Call<BookVariantDto> getBookVariantById(@Path("variantId") int variantId);
@@ -102,4 +105,11 @@ public interface ApiService {
     // Lấy chi tiết sách theo ID
     @GET("api/manage/Book/{id}")
     Call<BookDetailInfoResponse> getBookById(@Path("id") int id);
+
+    @GET("api/manage/Book/{id}")
+    Call<ReserveBookDto> getReserveBookById(@Path("id") int id);
+
+    @GET("api/reservation/user/{userId}")
+    Call<WrappedList<ReservationDto>> getReservationsByUser(@Path("userId") int userId);
+
 }

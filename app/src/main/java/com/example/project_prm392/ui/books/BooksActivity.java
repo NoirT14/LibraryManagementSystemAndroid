@@ -23,6 +23,7 @@ import com.example.project_prm392.data.model.BookBasicInfoRespone;
 import com.example.project_prm392.data.model.ODataResponse;
 import com.example.project_prm392.data.remote.ApiClient;
 import com.example.project_prm392.data.remote.ApiService;
+import com.example.project_prm392.ui.reservation.ReservationDetailActivity;
 
 import java.util.List;
 
@@ -160,7 +161,9 @@ public class BooksActivity extends AppCompatActivity {
         bookView.setContentDescription(speakableText);
 
         btnBorrow.setOnClickListener(v -> {
-            // xử lý mượn sách
+            Intent intent = new Intent(this, ReservationDetailActivity.class);
+            intent.putExtra("bookId", book.bookId); // truyền ID sang
+            startActivity(intent);
         });
 
         btnDetail.setOnClickListener(v -> {

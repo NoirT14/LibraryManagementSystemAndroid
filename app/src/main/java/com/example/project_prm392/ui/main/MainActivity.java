@@ -24,6 +24,7 @@ import com.example.project_prm392.ui.books.BooksActivity;
 import com.example.project_prm392.ui.loan.LoanListActivity;
 import com.example.project_prm392.ui.notification.NotificationsActivity;
 import com.example.project_prm392.ui.reservation.ReservationDetailActivity;
+import com.example.project_prm392.ui.reservation.ReservationListActivity;
 import com.example.project_prm392.ui.user.UserProfileActivity;
 import com.example.project_prm392.utils.AuthManager;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvWelcome, tvUserInfo;
     private CardView cardProfile, cardBooks;
+    private CardView cardReservation;
     private Toolbar toolbar;
 
     private SharedPrefsHelper sharedPrefsHelper;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         tvUserInfo = findViewById(R.id.tvUserInfo);
         cardProfile = findViewById(R.id.cardProfile);
         cardBooks = findViewById(R.id.cardBooks);
+        cardReservation = findViewById(R.id.cardReservation);
 
         setSupportActionBar(toolbar);
     }
@@ -86,7 +89,14 @@ public class MainActivity extends AppCompatActivity {
     private void setupClickListeners() {
         cardProfile.setOnClickListener(v -> navigateToProfile());
         cardBooks.setOnClickListener(v -> navigateToBooks());
+        cardReservation.setOnClickListener(v -> navigateToReservationList());
     }
+
+    private void navigateToReservationList() {
+        Intent intent = new Intent(this, ReservationListActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -204,8 +214,7 @@ public class MainActivity extends AppCompatActivity {
 //        Intent intent = new Intent(this, LoanListActivity.class);
 //        startActivity(intent);
 
-        Intent intent = new Intent(this, ReservationDetailActivity.class);
-        intent.putExtra("variantId", 4);
+        Intent intent = new Intent(this, BooksActivity.class);
         startActivity(intent);
 
     }

@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:paddingTop="16dp"
     android:padding="24dp">
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,11 +16,14 @@
 
         <!-- Thông tin sách -->
         <ImageView
-            android:id="@+id/ivBookThumbnail"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_book"
-            android:layout_marginBottom="8dp" />
+            android:id="@+id/imgCover"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_book_placeholder"
+            android:contentDescription="Book Cover" />
 
         <TextView
             android:id="@+id/tvBookTitle"
@@ -37,6 +42,19 @@
             android:textSize="14sp"
             android:textColor="#666666"
             android:layout_marginBottom="24dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Chọn tập:"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerVolume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" />
 
         <!-- Thông tin người dùng -->
         <TextView
@@ -61,7 +79,7 @@
             android:id="@+id/tvReserveMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bạn có chắc muốn đặt giữ sách này không?"
+            android:text="Bạn có chắc muốn đặt sách này không?"
             android:textSize="16sp"
             android:textAlignment="center"
             android:textColor="#000000"
